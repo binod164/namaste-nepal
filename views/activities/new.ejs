@@ -1,0 +1,21 @@
+<%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/performers/new.css" />
+<%- include('../partials/nav') %>
+
+<main>
+	<h1><%= title %></h1>
+  <p>Please first ensure that the Performer is not in the dropdown
+    <select>
+      <% activities.forEach(function(activity) { %>
+        <option><%= activity.name %></option>
+      <% }) %>
+    </select>
+  </p>
+  <form id="add-performer-form" action="/activities" method="POST">
+    <label for="name-input">Name:</label>
+    <input type="text" name="name" id="name-input">
+    <button type="submit">Add Activity</button>
+  </form>
+</main>
+
+<%- include('../partials/footer') %>
