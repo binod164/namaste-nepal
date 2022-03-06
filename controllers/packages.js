@@ -42,10 +42,22 @@ function deleteVacationPackage(req, res) {
   })
 }
 
+function edit(req, res) {
+  Profile.findById(req.params.id, function(err, vacationPackage) {
+    res.render('packages/edit', {
+      vacationPackage,
+      err,
+      title: "Edit Package"
+    })
+  })
+}
+
 export {
   newPackage as new,
   create,
   index,
   show,
-  deleteVacationPackage as delete
+  deleteVacationPackage as delete,
+  edit,
+
 }
