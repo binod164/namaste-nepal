@@ -1,4 +1,4 @@
-import { Profile } from '../models/profile.js'
+import { Package } from '../models/vacationPackage.js'
 
 function newPackage(req, res) {
   res.render('packages/new',{
@@ -7,10 +7,8 @@ function newPackage(req, res) {
 }
 
 function create(req, res) {
-  for (let key in req.body) {
-    if(req.body[key] === "") delete req.body[key]
-  }
-  const vacationPackage = new Profile(req.body)
+  console.log(req.body)
+  const vacationPackage = new Package(req.body)
   vacationPackage.save(function(err) {
 		if (err) return res.render('/packages/new')
     res.redirect('/packages')
@@ -18,7 +16,7 @@ function create(req, res) {
 }
 
 function index(req, res) {
-  Profile.find({}, function(err, packages){
+  Package.find({}, function(err, packages){
     res.render("packages/index", {
       err: err,
       packages: packages,
@@ -28,7 +26,7 @@ function index(req, res) {
 }
 
 function show(req, res) {
-  Profile.findById(req.params.id, function (err, vacationPackage) {
+  Package.findById(req.params.id, function (err, vacationPackage) {
     res.render('packages/show', { 
       title: 'Package Detail', 
       vacationPackage: vacationPackage,
@@ -37,18 +35,27 @@ function show(req, res) {
 }
 
 function deleteVacationPackage(req, res) {
-  Profile.findByIdAndDelete(req.params.id, function(err, vacationPackage) {
+  Package.findByIdAndDelete(req.params.id, function(err, vacationPackage) {
     res.redirect('/packages')
   })
 }
 
 function edit(req, res) {
-  Profile.findById(req.params.id, function(err, vacationPackage) {
+  Package.findById(req.params.id, function(err, vacationPackage) {
     res.render('packages/edit', {
       vacationPackage,
       err,
       title: "Edit Package"
     })
+  })
+}
+
+function update(req, res) {
+  for (let key in req.body) {
+    if (req.body[key] === '') delete req.body[key]
+  }
+  Package.findByIdAndUpdate(req.params.id, req.body, function(err, vacationPackage) {
+    res.redirect(`/packages/${vacationPackage._id}`)
   })
 }
 
@@ -59,5 +66,5 @@ export {
   show,
   deleteVacationPackage as delete,
   edit,
-
+  update
 }

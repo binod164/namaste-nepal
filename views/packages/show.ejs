@@ -1,20 +1,22 @@
 <%- include('../partials/html-head') %>
-<link rel="stylesheet" href="/stylesheets/movies/show.css" />
+<link rel="stylesheet" href="/stylesheets/packages/show.css" />
 <%- include('../partials/nav') %>
 
 <main>
   <h1><%= title %></h1>
   <section>
-    <div>Destination: </div>
-    <div><%= vacationPackage.destination %></div>
-    <a href="/packages/<%= vacationPackage._id %>/edit">
-      <button>Edit Package</button>
+    <div>Destination</div>
+    <div>
+      <%= vacationPackage.destination %>
+      <a href="/packages/<%= vacationPackage._id %>/edit">
+        <button>Edit Package</button>
     </a>
-    <div>Duration: </div>
+    </div>
+    <div>Duration</div>
     <div><%= vacationPackage.duration %></div>
-    <div>Tour Guide: </div>
+    <div>Tour Guide</div>
     <div><%= vacationPackage.tourGuide %></div>
-    <div>Departs: </div>
+    <div>Departs</div>
     <div><%= vacationPackage.departs %></div>
   </section>
 </main>

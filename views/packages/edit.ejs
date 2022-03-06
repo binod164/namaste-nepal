@@ -1,21 +1,27 @@
 <%- include('../partials/html-head') %>
-<link rel="stylesheet" href="/stylesheets/new.css" />
+<link rel="stylesheet" href="/stylesheets/packages/edit.css" />
 <%- include('../partials/nav') %>
   <main>
     <h1> <%= title %> </h1>
-      <form id="new-form" action="/packages/<%= vacationPackage._id %>?_method=PUT" method="POST"></form>
+      <form 
+        id="new-form" 
+        action="/packages/<%= vacationPackage._id %>?_method=PUT" 
+        method="POST"
+      >
         <label for ="destination-select">Destination:
           <select name="destination">
+            <option value="<%= vacationPackage.destination %>"><%= vacationPackage.destination %></option>
             <option value="Kathmandu">Kathmandu</option>
             <option value="Chiwan">Chitwan</option>
             <option value="Pokhara">Pokhara</option>
           </select>
         </label><br>
         <label for ="duration-input">Duration:
-          <input type="number" name="duration">
+          <input type="number" name="duration" value="<%= vacationPackage.duration %>">
         </label><br>
         <label for ="tourGuide-select">Tour Guide:
           <select name="tourGuide">
+            <option value="<%= vacationPackage.tourGuide %>"><%= vacationPackage.tourGuide %></option>
             <option value="Jhilke">Jhilke</option>
             <option value="Rajesh">Rajesh Hamal</option>
             <option value="Kale" >Kale Dai</option>
@@ -23,9 +29,9 @@
           </select>
         </label for ="departs-input"><br>
         <label>Departs:
-          <input type="datetime-local" name="departs">
+          <input type="datetime-local" name="departs" value="<%= vacationPackage.departs %>" >
         </label><br>
-        <button type="submit">Add Package</button>
+        <button type="submit">Save Package</button>
       </form>
     </main>
 <%- include('../partials/footer') %>
