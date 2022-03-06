@@ -1,19 +1,45 @@
-import { Package } from '../models/vacationPackage.js'
-
+import { Profile } from '../models/profile.js'
 
 function newPackage(req, res) {
-  res.render('packages/new')
-}
-
-function create(req, res) {
-  const vacationPackage = new Package(req.body)
-  vacationPackage.save(function(err) {
-		if (err) return res.redirect('/packages/new')
-    res.redirect('/packages/new')
+  res.render('packages/new',{
+  title:'Add Package'
   })
 }
 
+function create(req, res) {
+  for (let key in req.body) {
+    if(req.body[key] === "") delete req.body[key]
+  }
+  const vacationPackage = new Profile(req.body)
+  vacationPackage.save(function(err) {
+		if (err) return res.render('/packages/new')
+    res.redirect('/packages')
+  })
+}
+
+function index(req, res) {
+  Profile.find({}, function(err, packages){
+    res.render("packages/index", {
+      err: err,
+      packages: packages,
+      title: "All Packages"
+    })
+  })
+}
+
+// function show(req, res) {
+//   Profile.findById(req.params.id, function (err, vacationPackage) {
+//     res.render('packages/show', { 
+//       title: 'Package Detail', 
+//       vacationPackage: vacationPackage,
+//     })
+//   })
+// }
+
+
 export {
   newPackage as new,
-  create
+  create,
+  index,
+  show,
 }

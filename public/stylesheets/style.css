@@ -17,7 +17,11 @@ html {
 }
 
 body {
-  background-color: gray;
+  background-image: url("https://i.imgur.com/EfQaOra.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  /* background-color: gray; */
   /* Use a system font, if none are available use an available sans-sarif font */
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;

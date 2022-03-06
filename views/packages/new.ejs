@@ -1,37 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
   <main>
-    <form action="/packages" method="POST">
-      <label>Destination:
-        <select name="destination">
-          <option value="Kathmandu">Kathmandu</option>
-          <option value="Chiwan">Chitwan</option>
-          <option value="Pokhara">Pokhara</option>
-        </select>
-      </label><br>
-      <label>Duration:
-        <input type="number" name="duration">
-      </label><br>
-      <label>Tour Guide:
-        <select name="tourGuide">
-          <option value="Jhilke">Jhilke</option>
-          <option value="Rajesh">Rajesh Hamal</option>
-          <option value="Kale" >Kale Dai</option>
-          <option value="Dhamala">Dhamala</option>
-        </select>
-      </label><br>
-      <label>Departs:
-        <input type="datetime-local" name="departs">
-      </label><br>
-      <button type="submit">Add Package</button>
-    </form>
+    <h1> <%= title %> </h1>
+      <form action="/packages" method="POST">
+        <label for ="destination-select">Destination:
+          <select name="destination">
+            <option value="Kathmandu">Kathmandu</option>
+            <option value="Chiwan">Chitwan</option>
+            <option value="Pokhara">Pokhara</option>
+          </select>
+        </label><br>
+        <label for ="duration-input">Duration:
+          <input type="number" name="duration">
+        </label><br>
+        <label for ="tourGuide-select">Tour Guide:
+          <select name="tourGuide">
+            <option value="Jhilke">Jhilke</option>
+            <option value="Rajesh">Rajesh Hamal</option>
+            <option value="Kale" >Kale Dai</option>
+            <option value="Dhamala">Dhamala</option>
+          </select>
+        </label for ="departs-input"><br>
+        <label>Departs:
+          <input type="datetime-local" name="departs">
+        </label><br>
+        <button type="submit">Add Package</button>
+      </form>
     </main>
-</body>
-</html>
+<%- include('../partials/footer') %>

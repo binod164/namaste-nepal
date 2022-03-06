@@ -1,0 +1,30 @@
+<%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/flights/index.css" />
+<%- include('../partials/nav') %>
+
+<main>
+<h1><%= title %> </h1>
+  <table id="list">
+    <thead>
+      <tr>
+        <th>Destination</th>
+        <th>Duration</th>
+        <th>Tour Guide</th>
+        <th>Departs</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% packages.forEach(vacationPackage => { %>
+        <tr>
+          <td><%= vacationPackage.destination %></td>
+          <td><%= vacationPackage.duration %></td>
+          <td><%= vacationPackage.tourGuide %></td>
+          <td><%= vacationPackage.departs %></td>
+          <td><a href="/packages/<%= vacationPackage._id %>">DETAILS</a></td>
+        </tr>
+      <% }) %> 
+    </tbody>
+  </table>
+</main>
+
+<%- include('../partials/footer') %>

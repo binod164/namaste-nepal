@@ -36,7 +36,7 @@ const packageSchema = new Schema({
     },
   },
   tickets: [ticketSchema],
-  thingsToDo: [{type: Schema.Types.ObjectId, ref: ''}]
+  thingsToDo: [{type: Schema.Types.ObjectId, ref: 'Meal'}]
 }, {
   timestamps: true
 })
