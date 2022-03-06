@@ -8,6 +8,8 @@ router.get('/new', packagesCtrl.new)
 
 router.get('/:id', packagesCtrl.show)
 
+router.get("/:id/edit", moviesCtrl.edit)
+
 router.post('/', packagesCtrl.create)
 
 router.delete("/:id", packagesCtrl.delete)
