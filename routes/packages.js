@@ -12,6 +12,8 @@ router.get("/:id/edit", packagesCtrl.edit)
 
 router.post('/', packagesCtrl.create)
 
+router.put("/:id", moviesCtrl.update)
+
 router.delete("/:id", packagesCtrl.delete)
 
 
