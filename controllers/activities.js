@@ -9,7 +9,11 @@ function newActivity(req, res) {
   })
 }
 
-
+function create(req, res) {
+  Activity.create(req.body, function (err, activity) {
+    res.redirect('/activities/new')
+  })
+}
 
 export {
   newActivity as new,
