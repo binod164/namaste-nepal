@@ -10,6 +10,7 @@ function newActivity(req, res) {
 }
 
 
+
 export {
   newActivity as new,
   create
