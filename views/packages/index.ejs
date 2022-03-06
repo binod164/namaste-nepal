@@ -21,6 +21,10 @@
           <td><%= vacationPackage.tourGuide %></td>
           <td><%= vacationPackage.departs %></td>
           <td><a href="/packages/<%= vacationPackage._id %>">DETAILS</a></td>
+          <td><form action="/packages/<%= vacationPackage._id %>?_method=DELETE" method="POST">
+          <button>X</button>
+          </form>
+          </td>
         </tr>
       <% }) %> 
     </tbody>

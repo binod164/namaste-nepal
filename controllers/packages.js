@@ -27,19 +27,25 @@ function index(req, res) {
   })
 }
 
-// function show(req, res) {
-//   Profile.findById(req.params.id, function (err, vacationPackage) {
-//     res.render('packages/show', { 
-//       title: 'Package Detail', 
-//       vacationPackage: vacationPackage,
-//     })
-//   })
-// }
+function show(req, res) {
+  Profile.findById(req.params.id, function (err, vacationPackage) {
+    res.render('packages/show', { 
+      title: 'Package Detail', 
+      vacationPackage: vacationPackage,
+    })
+  })
+}
 
+function deleteVacationPackage(req, res) {
+  Profile.findByIdAndDelete(req.params.id, function(err, vacationPackage) {
+    res.redirect('/packages')
+  })
+}
 
 export {
   newPackage as new,
   create,
   index,
   show,
+  deleteVacationPackage as delete
 }

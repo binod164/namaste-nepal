@@ -10,6 +10,7 @@ router.get('/:id', packagesCtrl.show)
 
 router.post('/', packagesCtrl.create)
 
+router.delete("/:id", packagesCtrl.delete)
 
 
 export {
