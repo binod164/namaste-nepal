@@ -59,6 +59,15 @@ function update(req, res) {
   })
 }
 
+function createTicket(req, res) {
+  Package.findById(req.params.id, function(err, vacationPackage) {
+    vacationPackage.tickets.push(req.body)
+    vacationPackage.save(function(err) {
+      res.redirect(`/packages/${vacationPackage._id}`)
+    })
+  })
+}
+
 export {
   newPackage as new,
   create,
@@ -66,5 +75,6 @@ export {
   show,
   deleteVacationPackage as delete,
   edit,
-  update
+  update,
+  createTicket 
 }

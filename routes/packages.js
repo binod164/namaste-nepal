@@ -12,9 +12,12 @@ router.get("/:id/edit", packagesCtrl.edit)
 
 router.post('/', packagesCtrl.create)
 
-router.put("/:id", packagesCtrl.update)
+router.post("/:id/tickets", packagesCtrl.createTicket)
 
 router.delete("/:id", packagesCtrl.delete)
+
+
+router.put("/:id", packagesCtrl.update)
 
 
 export {

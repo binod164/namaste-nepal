@@ -1,3 +1,9 @@
+body{
+  background-image: url("https://i.imgur.com/qudFByd.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
 table {
   font-size: 2rem;
 }
