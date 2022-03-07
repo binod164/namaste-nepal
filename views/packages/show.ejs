@@ -6,12 +6,7 @@
   <h1><%= title %></h1>
   <section>
     <div>Destination</div>
-    <div>
-      <%= vacationPackage.destination %>
-      <a href="/packages/<%= vacationPackage._id %>/edit">
-        <button>Edit Package</button>
-    </a>
-    </div>
+    <div><%= vacationPackage.destination %></div>
     <div>Duration</div>
     <div><%= vacationPackage.duration %></div>
     <div>Tour Guide</div>
@@ -19,38 +14,14 @@
     <div>Departs</div>
     <div><%= vacationPackage.departs %></div>
   </section>
-  <h2>Tickets</h2>
-      <form 
-        action="/packages/<%= vacationPackage._id %>/tickets"
-        id="add-ticket-form"
-        method="post"
-      >
-        <label for="content-textarea">Seat:</label>
-        <input name="seat">
-        <label for="price-select">Price:</label>
-        <input type="number" name="price" required>
-        <button type="submit">Add Ticket</button>
-      </form>
-      <% if (vacationPackage.tickets.length) { %>
-        <table>
-          <thead>
-            <tr>
-              <th>Seat</th>
-              <th>Price</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% vacationPackage.tickets.forEach(function(ticket) { %>
-              <tr>
-                <td><%= ticket.seat %></td>
-                <td> $ <%=ticket.price %></td>
-              </tr>
-            <% }) %>
-          </tbody>
-        </table>
-      <% } else { %>
-        <h3>No Tickets Yet</h3>
-      <% } %>
+  <% if (vacationPackage.owner.equals(user?.profile._id)) { %>
+    <form action="/packages/<%= vacationPackage._id %>/edit" method="GET">
+      <button class="btn" type="submit">Edit this Package</button>
+    </form>
+    <form action="/packages/<%= vacationPackage._id %>?_method=DELETE" method="POST">
+      <button class="btn" type="submit">Delete this Package</button>
+    </form>
+  <% } %>
 </main>
   
 <%- include('../partials/footer') %>

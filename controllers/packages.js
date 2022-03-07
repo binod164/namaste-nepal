@@ -1,80 +1,129 @@
 import { Package } from '../models/vacationPackage.js'
+import { Activity } from "../models/activity.js"
 
-function newPackage(req, res) {
-  res.render('packages/new',{
-  title:'Add Package'
-  })
-}
+// function newPackage(req, res) {
+//   res.render('packages/new',{
+//   title:'Add Package'
+//   })
+// }
 
 function create(req, res) {
-  console.log(req.body)
-  const vacationPackage = new Package(req.body)
-  vacationPackage.save(function(err) {
-		if (err) return res.render('/packages/new')
+  req.body.owner = req.user.profile._id
+  Package.create(req.body)
+  .then(vacationPackage => {
+    res.redirect('/packages')
+  })
+  .catch(err => {
+    console.log(err)
     res.redirect('/packages')
   })
 }
 
 function index(req, res) {
-  Package.find({}, function(err, packages){
-    res.render("packages/index", {
-      err: err,
-      packages: packages,
-      title: "All Packages"
+  Package.find({})
+  .then(packages => {
+    res.render('packages/index', {
+      packages,
+      title: "Vacation Packages"
     })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect("/packages")
   })
 }
 
 function show(req, res) {
-  Package.findById(req.params.id, function (err, vacationPackage) {
-    res.render('packages/show', { 
-      title: 'Package Detail', 
-      vacationPackage: vacationPackage,
+  Package.findById(req.params.id)
+  .populate("owner")
+  .then(vacationPackage => {
+    res.render('packages/show', {
+      vacationPackage,
+      title: "Package Details"
     })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/packages')
   })
 }
 
 function deleteVacationPackage(req, res) {
-  Package.findByIdAndDelete(req.params.id, function(err, vacationPackage) {
+  Package.findById(req.params.id)
+  .then(vacationPackage => {
+    if (vacationPackage.owner.equals(req.user.profile._id)) {
+      vacationPackage.delete()
+      .then(() => {
+        res.redirect('/packages')
+      })
+    } else {
+      throw new Error ('🚫 Not authorized 🚫')
+    }   
+  })
+  .catch(err => {
+    console.log(err)
     res.redirect('/packages')
   })
 }
 
 function edit(req, res) {
-  Package.findById(req.params.id, function(err, vacationPackage) {
+  Package.findById(req.params.id)
+  .then(vacationPackage => {
     res.render('packages/edit', {
       vacationPackage,
-      err,
       title: "Edit Package"
     })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/packages')
   })
 }
 
 function update(req, res) {
-  for (let key in req.body) {
-    if (req.body[key] === '') delete req.body[key]
-  }
-  Package.findByIdAndUpdate(req.params.id, req.body, function(err, vacationPackage) {
-    res.redirect(`/packages/${vacationPackage._id}`)
+  Package.findById(req.params.id)
+  .then(vacationPackage => {
+    if (vacationPackage.owner.equals(req.user.profile._id)) {
+      vacationPackage.updateOne(req.body, {new: true})
+      .then(()=> {
+        res.redirect(`/packages/${vacationPackage._id}`)
+      })
+    } else {
+      throw new Error ('🚫 Not authorized 🚫')
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect(`/packages`)
   })
 }
 
-function createTicket(req, res) {
-  Package.findById(req.params.id, function(err, vacationPackage) {
-    vacationPackage.tickets.push(req.body)
-    vacationPackage.save(function(err) {
-      res.redirect(`/packages/${vacationPackage._id}`)
-    })
-  })
-}
+// function createTicket(req, res) {
+//   Package.findById(req.params.id, function(err, vacationPackage) {
+//     vacationPackage.tickets.push(req.body)
+//     vacationPackage.save(function(err) {
+//       res.redirect(`/packages/${vacationPackage._id}`)
+//     })
+//   })
+// }
+
+// function addToActivity(req, res) {
+//   Activity.findById(req.params.id, function(err, vacationPackage) {
+//     vacationPackage.activity.push(req.body.activityId)
+//     vacationPackage.save(function(err) {
+//       res.redirect(`/packages/${vacationPackage._id}`)
+//     })
+//   })
+// }
 
 export {
-  newPackage as new,
+  // newPackage as new,
   create,
   index,
   show,
   deleteVacationPackage as delete,
   edit,
   update,
-  createTicket 
+  // createTicket,
+  // addToActivity
 }
