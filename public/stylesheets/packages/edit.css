@@ -1,8 +1,16 @@
+body{
+  background-image: url("https://i.imgur.com/WuednwO.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
 form {
   display: grid;
+  /* text-align: center; */
   grid-gap: 10px;
-  grid-template-columns: repeat(2, minmax(auto, 35.2rem));
-  font-size: 2rem;
+  /* grid-template-columns: repeat(2, minmax(auto, 25rem)); */
+  font-size: 2rem;  
+  
 }
 
 form * {
@@ -12,8 +20,7 @@ form * {
 }
 
 form > button {
-  grid-column: span 2;
   width: 16rem;
-  margin-left: auto;
   font-size: 2.2rem;
+
 }
