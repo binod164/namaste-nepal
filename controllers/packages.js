@@ -99,11 +99,20 @@ function update(req, res) {
   })
 }
 
-// function createTicket(req, res) {
-//   Package.findById(req.params.id, function(err, vacationPackage) {
-//     vacationPackage.tickets.push(req.body)
-//     vacationPackage.save(function(err) {
-//       res.redirect(`/packages/${vacationPackage._id}`)
+function createTicket(req, res) {
+  Package.findById(req.params.id, function(err, vacationPackage) {
+    vacationPackage.tickets.push(req.body)
+    vacationPackage.save(function(err) {
+      res.redirect(`/packages/${vacationPackage._id}`)
+  })
+})
+}
+
+// function createTicket(req,res){
+//   Flight.findById(req.params.id, function(err, flight) {
+//     flight.tickets.push(req.body)
+//     flight.save(function(err) {
+//       res.redirect(`/flights/${flight._id}`)
 //     })
 //   })
 // }
@@ -124,6 +133,6 @@ export {
   deleteVacationPackage as delete,
   edit,
   update,
-  // createTicket,
+  createTicket,
   // addToActivity
 }

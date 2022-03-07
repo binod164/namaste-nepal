@@ -18,6 +18,45 @@
           <p class="card-title fs-1 text-dark"><strong>Duration:</strong> <%= vacationPackage.duration  %> weeks</p>
           <p class="card-title fs-1 text-dark"><strong>Tour Guide: </strong> <%= vacationPackage.tourGuide  %></p>
           <p class="card-title fs-1 text-dark"><strong>Trip Date: </strong><%= vacationPackage.tripDate  %></p>
+          <p class="card-title fs-1 text-dark"><strong>Created by: </strong><%= vacationPackage.owner.name %></p>
+          <% if (user?.profile._id) { %>
+          <h2 class="card-title fs-1 text-dark">Bookings</h2>
+                <form 
+                  action="/packages/<%= vacationPackage._id %>/tickets"
+                  id="add-ticket-form"
+                  method="post"
+                >
+                  <label for="content-textarea">Booked By:</label>
+                  <input name="bookedBy">
+                  <label for="content-textarea">Number of people:</label>
+                  <input name="numOfPeople">
+                  <label for="price-select">Price:</label>
+                  <input type="number" name="price" required>
+                  <button class="h4" type="submit">Book</button>
+                </form>
+                <% if (vacationPackage.tickets.length) { %>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th class="card-title fs-1 text-dark">Booked by</th>
+                        <th class="card-title fs-1 text-dark">Number of people</th>
+                        <th class="card-title fs-1 text-dark">Price</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% vacationPackage.tickets.forEach(function(ticket) { %>
+                        <tr>
+                          <td class="card-title fs-1 text-dark"><%= ticket.bookedBy %></td>
+                          <td class="card-title fs-1 text-dark"><%= ticket.numOfPeople %></td>
+                          <td class="card-title fs-1 text-dark"> $ <%=ticket.price %></td>
+                        </tr>
+                      <% }) %>
+                    </tbody>
+                  </table>
+                <% } else { %>
+                  <h3>No Bookings Yet</h3>
+                <% } %>
+                <% } %>
           <% if (vacationPackage.owner.equals(user?.profile._id)) { %>
             <form action="/packages/<%= vacationPackage._id %>/edit" method="GET">
             <button class="h4" type="submit">Edit this Package</button>

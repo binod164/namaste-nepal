@@ -3,18 +3,21 @@ import mongoose from 'mongoose'
 const Schema = mongoose.Schema
 
 
-// const ticketSchema = new Schema({
-//   price: {
-//     type:Number,
-//     min: 0
-//   },
-//   numberOfpeople: {
-//     type: Number
-//   }
+const ticketSchema = new Schema({
+  bookedBy: {
+    type:String,
+  },
+  price: {
+    type:Number,
+    min: 0
+  },
+  numOfPeople: {
+    type: Number
+  }
 
-// }, {
-//   timestamps: true
-// })
+}, {
+  timestamps: true
+})
 
 const packageSchema = new Schema({
   destination: {
@@ -29,7 +32,7 @@ const packageSchema = new Schema({
   tripDate: {
     type:Date,
   },
-  // tickets: [ticketSchema],
+  tickets: [ticketSchema],
   // activity: [{type: Schema.Types.ObjectId, ref: 'Activity'}]
   owner: {
     type: Schema.Types.ObjectId, 

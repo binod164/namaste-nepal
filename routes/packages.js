@@ -15,7 +15,7 @@ router.get("/:id/edit", packagesCtrl.edit)
 
 router.post('/',isLoggedIn, packagesCtrl.create)
 
-// router.post("/:id/tickets", packagesCtrl.createTicket)
+router.post("/:id/tickets", packagesCtrl.createTicket)
 
 // router.post('/:id/activities',packagesCtrl.addToActivity);
 
