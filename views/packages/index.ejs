@@ -1,9 +1,14 @@
 <%- include('../partials/html-head') %>
 <link rel="stylesheet" href="/stylesheets/packages/index.css" />
+<link 
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
+  rel="stylesheet" 
+  integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
+  crossorigin="anonymous"
+>
 <%- include('../partials/nav') %>
 
-<main class = "">
-<h1><%= title %> </h1>
+<main>
 <% if (user) { %>
   <h2>Add a Package</h2>
   <form action="/packages" method="POST">
@@ -15,43 +20,51 @@
       </select>
     </label><br>
     <label for ="duration-input">Duration:
-      <input type="number" name="duration">
+      <input type="number" name="duration" placeholder="weeks" required>
     </label><br>
     <label for ="tourGuide-select">Tour Guide:
       <select name="tourGuide">
         <option value="Jhilke">Jhilke</option>
         <option value="Rajesh">Rajesh Hamal</option>
-        <option value="Kale" >Kale Dai</option>
+        <option value="Kale Dai" >Kale Dai</option>
         <option value="Dhamala">Dhamala</option>
       </select>
-    </label for ="departs-input"><br>
-    <label>Departs:
-      <input type="datetime-local" name="departs">
+    </label for ="tripDate-input"><br>
+    <label>Trip Date:
+      <input type="datetime-local" name="tripDate" required>
     </label><br>
     <button type="submit">Add Package</button>
   </form>
 <% } %>
-  <table id="list">
-    <thead>
-      <tr>
-        <th>Destination</th>
-        <th>Duration</th>
-        <th>Tour Guide</th>
-        <th>Departs</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% packages.forEach(vacationPackage => { %>
-        <tr>
-          <td><%= vacationPackage.destination %></td>
-          <td><%= vacationPackage.duration %></td>
-          <td><%= vacationPackage.tourGuide %></td>
-          <td><%= vacationPackage.departs %></td>
-          <td><a href="/packages/<%= vacationPackage._id %>">DETAILS</a></td>
-        </tr>
-      <% }) %> 
-    </tbody>
-  </table>
+</main>
+<main>
+  <h1 style= "font-size:5rem;padding-top:1%"><%= title %> </h1>
+  <div class="container py-5 px-3">
+    <div 
+      class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g1 px-4"
+    >
+    <% packages.forEach(vacationPackage => { %>
+        <div class="col">
+            <div class="card mb-4 shadow-sm">
+              <div class="card-body">
+                <h1 class="card-title fs-3 text-dark"><strong>Vacation Package</strong></h1>
+                <p class="card-title fs-3 text-dark"><strong>Destination: </strong><%= vacationPackage.destination  %></p>
+                <p class="card-title fs-3 text-dark"><strong>Duration:</strong> <%= vacationPackage.duration  %> weeks</p>
+                <p class="card-title fs-3 text-dark"><strong>Tour Guide: </strong> <%= vacationPackage.tourGuide  %></p>
+                <p class="card-title fs-3 text-dark"><strong>Trip Date: </strong><%= vacationPackage.tripDate  %></p>
+                <a href="/packages/<%= vacationPackage._id %>">DETAILS</a>
+              </div>
+            </div>
+          </a>
+        </div>
+      <% }) %>
+    </div>
+  </div>
 </main>
 
+<script 
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+  integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
+  crossorigin="anonymous"
+></script>
 <%- include('../partials/footer') %>

@@ -7,7 +7,7 @@
         id="new-form" 
         action="/packages/<%= vacationPackage._id %>?_method=PUT" 
         method="POST"
-      >
+        >
         <label for ="destination-select">Destination:
           <select name="destination">
             <option value="<%= vacationPackage.destination %>"><%= vacationPackage.destination %></option>
@@ -27,9 +27,9 @@
             <option value="Kale" >Kale Dai</option>
             <option value="Dhamala">Dhamala</option>
           </select>
-        </label for ="departs-input"><br>
-        <label>Departs:
-          <input type="datetime-local" name="departs" value="<%= vacationPackage.departs %>" >
+        </label for ="tripDate-input"><br>
+        <label>Trip Date:
+          <input type="datetime-local" name="tripDate" value="<%= vacationPackage.departs %>" >
         </label><br>
         <button type="submit">Save Package</button>
       </form>

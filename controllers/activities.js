@@ -4,7 +4,7 @@ function newActivity(req, res) {
   Activity.find({}, function (err, activities) {
     res.render('activities/new', {
       title: 'Add Activity',
-      activities: activities,
+      activities : activities,
     })
   })
 }
@@ -14,6 +14,7 @@ function create(req, res) {
     res.redirect('/activities/new')
   })
 }
+
 
 export {
   newActivity as new,

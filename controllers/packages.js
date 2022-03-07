@@ -36,6 +36,7 @@ function index(req, res) {
 function show(req, res) {
   Package.findById(req.params.id)
   .populate("owner")
+  .populate("activity")
   .then(vacationPackage => {
     res.render('packages/show', {
       vacationPackage,
@@ -117,7 +118,6 @@ function update(req, res) {
 // }
 
 export {
-  // newPackage as new,
   create,
   index,
   show,

@@ -26,7 +26,7 @@ const packageSchema = new Schema({
   tourGuide: {
     type:String,
   },
-  departs: {
+  tripDate: {
     type:Date,
   },
   // tickets: [ticketSchema],
@@ -34,7 +34,8 @@ const packageSchema = new Schema({
   owner: {
     type: Schema.Types.ObjectId, 
     ref: 'Profile'
-  }
+  },
+  activity: [{type: Schema.Types.ObjectId, ref: 'Activity'}]
 }, {
   timestamps: true
 })

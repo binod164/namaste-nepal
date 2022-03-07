@@ -1,0 +1,30 @@
+<%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/packages/show.css" />
+<%- include('../partials/nav') %>
+<h2>Add a Package</h2>
+  <form action="/packages" method="POST">
+    <label for ="destination-select">Destination:
+      <select name="destination">
+        <option value="Kathmandu">Kathmandu</option>
+        <option value="Chiwan">Chitwan</option>
+        <option value="Pokhara">Pokhara</option>
+      </select>
+    </label><br>
+    <label for ="duration-input">Duration:
+      <input type="number" name="duration">
+    </label><br>
+    <label for ="tourGuide-select">Tour Guide:
+      <select name="tourGuide">
+        <option value="Jhilke">Jhilke</option>
+        <option value="Rajesh">Rajesh Hamal</option>
+        <option value="Kale" >Kale Dai</option>
+        <option value="Dhamala">Dhamala</option>
+      </select>
+    </label for ="tripDate-input"><br>
+    <label>Departs:
+      <input type="datetime-local" name="tripDate">
+    </label><br>
+    <button type="submit">Add Package</button>
+  </form>
+
+  <%- include('../partials/footer') %>
