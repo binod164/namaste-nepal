@@ -1,0 +1,45 @@
+<%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/packages/edit.css" />
+<%- include('../partials/nav') %>
+
+<main>
+  <% if (profile.avatar) { %>
+    <div>
+      <img 
+        class="profile-avatar"
+        src="<%= profile.avatar %>" 
+        alt="<%= profile.name %> avatar"
+      >
+    </div>
+  <% } %>
+  <h1>It's <%= isSelf ? "you" : profile.name %>!</h1>
+
+<% if (isSelf)  {%> 
+  <h2>Add Favorites!</h2>
+  <form action="/profiles/<%= profile._id %>/favorites" method="POST">
+    <label>
+      Place Visited: 
+      <input type="text" name="place" autocomplete="off">
+    </label>
+    <label>
+      Favorite Activity: 
+      <input type="text" name="activity" autocomplete="off">
+    </label>
+    <button type="submit">Add Favorites</button>
+  </form>
+<% } %>
+<% if (profile.favorites.length)  {%>
+  <h2>
+    <%= isSelf ? "You have" : `${profile.name} has` %> favorites! Here they are!
+  </h2>
+  <% profile.favorites.forEach(favorite => { %>
+    <h3>Place Visited: <%= favorite.place %><%=` Favorite Activity in ${favorite.place}:`%><%= favorite.activity %>
+    </h3>
+  <% }) %>
+<% } else { %>
+  <h2>
+    <%= isSelf ? "You don't" : `${profile.name} doesn't` %> have any favorites.
+  </h2> 
+<% } %>
+</main>
+<%- include('../partials/footer') %>
