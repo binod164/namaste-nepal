@@ -33,12 +33,11 @@ const packageSchema = new Schema({
     type:Date,
   },
   tickets: [ticketSchema],
-  // activity: [{type: Schema.Types.ObjectId, ref: 'Activity'}]
   owner: {
     type: Schema.Types.ObjectId, 
     ref: 'Profile'
   },
-  activity: [{type: Schema.Types.ObjectId, ref: 'Activity'}]
+  // activity: [{type: Schema.Types.ObjectId, ref: 'Activity'}]
 }, {
   timestamps: true
 })

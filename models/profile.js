@@ -3,6 +3,7 @@ import mongoose from 'mongoose'
 const favoriteSchema = new mongoose.Schema({
   place: String,
   activity: String,
+  food:String,
 }, {
   timestamps: true
 })

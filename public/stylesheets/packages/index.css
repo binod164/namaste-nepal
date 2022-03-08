@@ -4,23 +4,10 @@ body{
     background-size: cover;
 }
 
-form {
-  /* display: grid; */
-  font-size: 1rem;   
-}
-
-form * {
-  padding: 5px;
-  border-radius: 5px;
-  font-size: 2rem;
-}
-
-form > button {
-  width: 16rem;
-  font-size: 2.2rem;
-}
-/* 
 h2{
-  font-size: 3rem;
-  
-} */
+  font-size: 5rem;
+}
+
+button{
+  font-size: 16px;
+}

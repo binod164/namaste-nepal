@@ -17,7 +17,7 @@ html {
 }
 
 body {
-  background-image: url("https://i.imgur.com/EfQaOra.jpg");
+  background-image: url("https://i.imgur.com/WuednwO.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 
@@ -28,28 +28,89 @@ body {
   margin: 0;
 }
 
+
 nav {
-  padding-left: 10%;
   background-color: white;
-  font-size: 2rem;
+  font-size: 1.6rem;
   display: flex;
   justify-content: center;
 }
 
-nav > a{
-  width: 25%;
-  text-decoration: none;
-}
-
 main {
+  padding-top: 1%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 }
 
+
 h1 {
   font-size: 5.6rem;
-  color: white;
+  
   font-family: cursive;
+}
+
+
+h2 {
+  font-size: 5rem;
+
+  font-family: cursive;
+}
+
+h3 {
+  font-size: 2.4rem;
+
+  font-family: cursive;
+}
+
+ul {
+  list-style-type: none;
+}
+
+p,
+label,
+li,
+button,
+input {
+  font-size: 1.8rem;
+}
+
+label {
+  font-weight: bold;
+}
+
+section {
+  padding: 50px;
+}
+
+a {
+  color: #00b7ff;
+}
+
+pre {
+  font-size: 1.4rem;
+}
+
+nav > a {
+  margin: 1rem 3rem;
+  text-decoration: none;
+  font-size: 2.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn {
+  margin: 1.6rem 0;
+}
+
+.link {
+  padding: 1rem 0;
+  font-size: 1.8rem;
+  display: inline-block;
+}
+
+.profile-avatar {
+  margin-top: 50px;
 }

@@ -1,21 +1,75 @@
 <%- include('../partials/html-head') %>
-<link rel="stylesheet" href="/stylesheets/activities/new.css" />
+<link rel="stylesheet" href="/stylesheets/packages/index.css" />
+<link 
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
+  rel="stylesheet" 
+  integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
+  crossorigin="anonymous"
+>
 <%- include('../partials/nav') %>
 
 <main>
-	<h1><%= title %></h1>
-  <p>Please first ensure that the activity is not in the dropdown
-    <select>
-      <% activities.forEach(function(activity) { %>
-        <option><%= activity.name %></option>
-      <% }) %>
-    </select>
-  </p>
+ 
+  <h1><%= title %></h1>
+  <% if (user?.profile._id) { %>
+    <div class="col">
+      <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+    <p>Please add your favorite activity below:</p>
   <form id="add-performer-form" action="/activities" method="POST">
-    <label for="name-input">Name:</label>
-    <input type="text" name="name" id="name-input">
+    <label for ="destination-select">Destination:
+      <select name="name">
+        <option value="Kathmandu">Kathmandu</option>
+        <option value="Chiwan">Chitwan</option>
+        <option value="Pokhara">Pokhara</option>
+      </select>
+    </label><br>
+    <label for="name-input">Recommended places:</label>
+    <input type="text" name="recommendedPlaces" id="name-input"><br>
+    <label for="name-input">Recommended activities:</label>
+    <input type="text" name="recommendedActivities" id="name-input"><br>
     <button type="submit">Add Activity</button>
   </form>
+  </div>
+  </div>
+  </div>
+  <% } %>
+  <p>
+    <div class="container py-5 px-3">
+      <div 
+        class="row row-cols-2 row-cols-md-3 g1 px-4"
+      >
+        <% activities.forEach(function(activity) { %>
+          <div class="col">
+            <div class="card mb-4 shadow-sm">
+              <div class="card-body">
+          <p class="card-title fs-3 text-dark"><strong>Destination: </strong><%= activity.name %></p>
+          <p class="card-title fs-3 text-dark"><strong>Recommended Activity: </strong><%= activity.recommendedActivities %></p>
+          <p class="card-title fs-3 text-dark"><strong>Recommended Places: </strong><%= activity.recommendedPlaces %></p>
+          
+            <% if (user?.profile._id) { %>
+          <form action="/activities/<%= activity._id %>/edit">
+          <button>EDIT</button>
+          </form>
+          <form action="/activities/<%= activity._id %>?_method=DELETE" method="POST">
+            <button>DELETE</button>
+            </form>
+          <% } %> 
+        </div>
+        </div>
+        </div>
+
+          <% }) %>
+      </div>
+      </div>
+
+    </ul>
+  </p>
 </main>
+<script 
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+  integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
+  crossorigin="anonymous"
+></script>
 
 <%- include('../partials/footer') %>

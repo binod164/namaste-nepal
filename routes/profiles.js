@@ -7,6 +7,7 @@ const router = Router()
 router.get('/', isLoggedIn, profilesCtrl.index)
 router.get('/:id', isLoggedIn, profilesCtrl.show)
 router.post('/:id/favorites', isLoggedIn, profilesCtrl.createFavorite)
+router.delete('/favorites/:id', isLoggedIn, profilesCtrl.deleteFavorite)
 
 export {
   router

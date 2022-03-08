@@ -15,7 +15,7 @@
   <h1>It's <%= isSelf ? "you" : profile.name %>!</h1>
 
 <% if (isSelf)  {%> 
-  <h2>Add Favorites!</h2>
+  <h2>Add Favorites about the place you visited!</h2>
   <form action="/profiles/<%= profile._id %>/favorites" method="POST">
     <label>
       Place Visited: 
@@ -25,15 +25,29 @@
       Favorite Activity: 
       <input type="text" name="activity" autocomplete="off">
     </label>
+    <label>
+      Favorite Food: 
+      <input type="text" name="food" autocomplete="off">
+    </label>
     <button type="submit">Add Favorites</button>
   </form>
+
 <% } %>
 <% if (profile.favorites.length)  {%>
   <h2>
     <%= isSelf ? "You have" : `${profile.name} has` %> favorites! Here they are!
   </h2>
   <% profile.favorites.forEach(favorite => { %>
-    <h3>Place Visited: <%= favorite.place %><%=` Favorite Activity in ${favorite.place}:`%><%= favorite.activity %>
+    <h3>Place Visited:<%= favorite.place %>Favorite Activity:<%= favorite.activity %>Favorite Food:<%= favorite.food %>
+    <% if (isSelf) { %> 
+        <form 
+          action="/profiles/favorites/<%= favorite._id %>?_method=DELETE" 
+          method="POST"
+          style="display: inline-block;"
+        >
+          <button type="submit">Remove favorite <%= favorite.name %></button>
+        </form>
+      <% } %> 
     </h3>
   <% }) %>
 <% } else { %>

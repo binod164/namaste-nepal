@@ -19,6 +19,14 @@
           <p class="card-title fs-1 text-dark"><strong>Tour Guide: </strong> <%= vacationPackage.tourGuide  %></p>
           <p class="card-title fs-1 text-dark"><strong>Trip Date: </strong><%= vacationPackage.tripDate  %></p>
           <p class="card-title fs-1 text-dark"><strong>Created by: </strong><%= vacationPackage.owner.name %></p>
+          <% if (vacationPackage.owner.equals(user?.profile._id)) { %>
+            <form action="/packages/<%= vacationPackage._id %>/edit" method="GET">
+            <button class="h4" type="submit">Edit this Package</button>
+            </form>
+            <form action="/packages/<%= vacationPackage._id %>?_method=DELETE" method="POST">
+            <button class="h4" type="submit">Delete this Package</button>
+            </form>
+          <% } %>
           <% if (user?.profile._id) { %>
           <h2 class="card-title fs-1 text-dark">Bookings</h2>
                 <form 
@@ -56,15 +64,7 @@
                 <% } else { %>
                   <h3>No Bookings Yet</h3>
                 <% } %>
-                <% } %>
-          <% if (vacationPackage.owner.equals(user?.profile._id)) { %>
-            <form action="/packages/<%= vacationPackage._id %>/edit" method="GET">
-            <button class="h4" type="submit">Edit this Package</button>
-            </form>
-            <form action="/packages/<%= vacationPackage._id %>?_method=DELETE" method="POST">
-            <button class="h4" type="submit">Delete this Package</button>
-            </form>
-          <% } %>
+                <% } %>     
   </div>
   </div>
 </div>
@@ -75,3 +75,5 @@
   integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
   crossorigin="anonymous"
 ></script>
+
+<%- include('../partials/footer') %>

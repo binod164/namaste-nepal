@@ -3,7 +3,7 @@ import { Activity } from '../models/activity.js'
 function newActivity(req, res) {
   Activity.find({}, function (err, activities) {
     res.render('activities/new', {
-      title: 'Add Activity',
+      title: 'Activities To Do In Nepal',
       activities : activities,
     })
   })
@@ -16,7 +16,13 @@ function create(req, res) {
 }
 
 
+
+
 export {
   newActivity as new,
-  create
+  create,
+  // deleteActivity as delete,
+  // editActivity as edit,
+  // update
+// }
 }
