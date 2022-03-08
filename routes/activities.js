@@ -6,6 +6,8 @@ const router = Router()
 
 router.get('/', activitiesCtrl.index)
 
+router.get('/new', activitiesCtrl.new)
+
 router.get("/:id/edit", activitiesCtrl.edit)
 
 router.get('/:id', activitiesCtrl.show)

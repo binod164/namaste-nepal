@@ -7,7 +7,7 @@ const router = Router()
 
 router.get('/', packagesCtrl.index)
 
-// router.get('/new', packagesCtrl.new)
+router.get('/new', packagesCtrl.new)
 
 router.get('/:id', packagesCtrl.show)
 

@@ -1,5 +1,13 @@
 import { Activity } from '../models/activity.js'
 
+
+function newActivity(req, res) {
+  console.log("toooooo")
+  res.render('activities/new',{
+  title:'Add Activity'
+  })
+}
+
 function index(req, res) {
   Activity.find({})
   .then(activities => {
@@ -119,6 +127,7 @@ function deleteActivity(req, res) {
 }
 
 export {
+  newActivity as new,
   index,
   show,
   create,

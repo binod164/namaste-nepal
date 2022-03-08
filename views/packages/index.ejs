@@ -9,42 +9,15 @@
 <%- include('../partials/nav') %>
 
 <main>
-<% if (user) { %>
-  <div class="col">
-    <div class="card mb-4 shadow-sm">
-      <div class="card-body">
-  <h2>Add a Package</h2>
-  <form action="/packages" method="POST">
-    <label for ="destination-select">Destination:
-      <select name="destination">
-        <option value="Kathmandu">Kathmandu</option>
-        <option value="Chiwan">Chitwan</option>
-        <option value="Pokhara">Pokhara</option>
-      </select>
-    </label><br>
-    <label for ="duration-input">Duration:
-      <input type="number" name="duration" placeholder="weeks" required>
-    </label><br>
-    <label for ="tourGuide-select">Tour Guide:
-      <select name="tourGuide">
-        <option value="Jhilke">Jhilke</option>
-        <option value="Rajesh">Rajesh Hamal</option>
-        <option value="Kale Dai" >Kale Dai</option>
-        <option value="Dhamala">Dhamala</option>
-      </select>
-    </label for ="tripDate-input"><br>
-    <label>Trip Date:
-      <input type="datetime-local" name="tripDate" required>
-    </label><br>
-    <button type="submit">Add Package</button>
-  </form>
-</div>
-</div>
-</div>
-<% } %>
-</main>
-<main>
   <h1 style= "font-size:5rem;padding-top:1%"><%= title %> </h1>
+<% if (user) { %>
+  <a href="/packages/new">
+    <button>Add Package</button>
+  </a>
+</main>
+<% } %>
+<main>
+  
   <div class="container py-5 px-3">
     <div 
       class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g1 px-4"

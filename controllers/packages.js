@@ -1,11 +1,11 @@
 import { Package } from '../models/vacationPackage.js'
 import { Activity } from "../models/activity.js"
 
-// function newPackage(req, res) {
-//   res.render('packages/new',{
-//   title:'Add Package'
-//   })
-// }
+function newPackage(req, res) {
+  res.render('packages/new',{
+  title:'Add Package'
+  })
+}
 
 function create(req, res) {
   req.body.owner = req.user.profile._id
@@ -126,6 +126,7 @@ function createTicket(req, res) {
 // }
 
 export {
+  newPackage as new,
   create,
   index,
   show,
