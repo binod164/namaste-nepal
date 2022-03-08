@@ -9,23 +9,18 @@
 <%- include('../partials/nav') %>
 
 <main>
-  
-  <form 
-        id="new-form" 
-        action="/activities" 
-        method="POST"
-        >
+  <h1><%= title %></h1>
+  <form action="/activities/<%= activity._id %>?_method=PUT" method="POST">
+
     <div class="col">
       <div class="card mb-4 shadow-sm">
         <div class="card-body">
-          <h1><%= title %></h1>
-    <!-- <p>Please add your favorite activity below:</p> -->
-  <form id="add-performer-form" action="/activities" method="POST">
+    <p>Please add your favorite activity below:</p>
     <label for ="destination-select">Destination:
       <select name="name">
         <option value="<%= activity.name %>"><%= activity.name %></option>
         <option value="Kathmandu">Kathmandu</option>
-        <option value="Chitwan">Chitwan</option>
+        <option value="Chiwan">Chitwan</option>
         <option value="Pokhara">Pokhara</option>
       </select>
     </label><br>

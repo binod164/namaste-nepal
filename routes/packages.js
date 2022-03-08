@@ -4,7 +4,6 @@ import * as packagesCtrl from '../controllers/packages.js'
 
 const router = Router()
 
-
 router.get('/', packagesCtrl.index)
 
 router.get('/new', packagesCtrl.new)
@@ -17,12 +16,9 @@ router.post('/',isLoggedIn, packagesCtrl.create)
 
 router.post("/:id/tickets", packagesCtrl.createTicket)
 
-// router.post('/:id/activities',packagesCtrl.addToActivity);
-
 router.delete("/:id",isLoggedIn, packagesCtrl.delete)
 
 router.put("/:id",isLoggedIn, packagesCtrl.update)
-
 
 export {
 	router

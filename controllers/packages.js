@@ -1,5 +1,4 @@
 import { Package } from '../models/vacationPackage.js'
-import { Activity } from "../models/activity.js"
 
 function newPackage(req, res) {
   res.render('packages/new',{
@@ -107,24 +106,6 @@ function createTicket(req, res) {
 })
 }
 
-// function createTicket(req,res){
-//   Flight.findById(req.params.id, function(err, flight) {
-//     flight.tickets.push(req.body)
-//     flight.save(function(err) {
-//       res.redirect(`/flights/${flight._id}`)
-//     })
-//   })
-// }
-
-// function addToActivity(req, res) {
-//   Activity.findById(req.params.id, function(err, vacationPackage) {
-//     vacationPackage.activity.push(req.body.activityId)
-//     vacationPackage.save(function(err) {
-//       res.redirect(`/packages/${vacationPackage._id}`)
-//     })
-//   })
-// }
-
 export {
   newPackage as new,
   create,
@@ -134,6 +115,4 @@ export {
   edit,
   update,
   createTicket,
-  
-  // addToActivity
 }

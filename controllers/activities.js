@@ -2,7 +2,6 @@ import { Activity } from '../models/activity.js'
 
 
 function newActivity(req, res) {
-  console.log("toooooo")
   res.render('activities/new',{
   title:'Add Activity'
   })
@@ -50,22 +49,6 @@ function show(req, res) {
   })
 }
 
-// function deleteActivity(req, res) {
-//   Activity.findByIdAndDelete(req.params.id, function(err, activity) {
-//     res.redirect('/activities/new')
-//   })
-// }
-
-// function editActivity(req, res) {
-//   Activity.findById(req.params.id, function(err, activity) {
-//     res.render('activities/edit', {
-//       activity,
-//       err,
-//       title: "Edit Activity"
-//     })
-//   })
-// }
-
 function edit(req, res) {
   Activity.findById(req.params.id)
   .then(activity => {
@@ -80,23 +63,13 @@ function edit(req, res) {
   })
 }
 
-
-// function update(req, res) {
-//   for (let key in req.body) {
-//     if (req.body[key] === '') delete req.body[key]
-//   }
-//   Activity.findByIdAndUpdate(req.params.id, req.body, function(err, activity) {
-//     res.redirect(`/activities/new`)
-//   })
-// }
-
 function update(req, res) {
   Activity.findById(req.params.id)
   .then(activity => {
     if (activity.owner.equals(req.user.profile._id)) {
       activity.updateOne(req.body, {new: true})
       .then(()=> {
-        res.redirect(`/activities`)
+        res.redirect('/activities')
       })
     } else {
       throw new Error ('🚫 Not authorized 🚫')
