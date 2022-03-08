@@ -86,7 +86,7 @@ function update(req, res) {
     if (vacationPackage.owner.equals(req.user.profile._id)) {
       vacationPackage.updateOne(req.body, {new: true})
       .then(()=> {
-        res.redirect(`/packages/${vacationPackage._id}`)
+        res.redirect('/packages')
       })
     } else {
       throw new Error ('🚫 Not authorized 🚫')

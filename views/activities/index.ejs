@@ -9,7 +9,7 @@
 <%- include('../partials/nav') %>
 
 <main>
- 
+  <% if (user) { %>
   <h1><%= title %></h1>
   <% if (user?.profile._id) { %>
     <div class="col">
@@ -34,6 +34,7 @@
   </div>
   </div>
   <% } %>
+  <% } %>
   <p>
     <div class="container py-5 px-3">
       <div 
@@ -46,20 +47,11 @@
           <p class="card-title fs-3 text-dark"><strong>Destination: </strong><%= activity.name %></p>
           <p class="card-title fs-3 text-dark"><strong>Recommended Activity: </strong><%= activity.recommendedActivities %></p>
           <p class="card-title fs-3 text-dark"><strong>Recommended Places: </strong><%= activity.recommendedPlaces %></p>
-          
-            <% if (user?.profile._id) { %>
-          <form action="/activities/<%= activity._id %>/edit">
-          <button>EDIT</button>
-          </form>
-          <form action="/activities/<%= activity._id %>?_method=DELETE" method="POST">
-            <button>DELETE</button>
-            </form>
-          <% } %> 
+          <a href="/activities/<%= activity._id %>">DETAILS</a> 
         </div>
         </div>
         </div>
-
-          <% }) %>
+        <% }) %> 
       </div>
       </div>
 

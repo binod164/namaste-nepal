@@ -34,7 +34,6 @@ function index(req,res){
   }
 
   function createFavorite(req, res) {
-    console.log("yoooo")
     Profile.findById(req.user.profile._id)
     .then(profile => {
       profile.favorites.push(req.body)

@@ -1,17 +1,20 @@
 import { Router } from 'express'
+import { isLoggedIn } from '../middleware/middleware.js'
 import * as activitiesCtrl from '../controllers/activities.js'
 
 const router = Router()
 
-router.get('/new', activitiesCtrl.new)
+router.get('/', activitiesCtrl.index)
 
 router.get("/:id/edit", activitiesCtrl.edit)
 
-router.post('/', activitiesCtrl.create)
+router.get('/:id', activitiesCtrl.show)
 
-router.delete("/:id", activitiesCtrl.delete)
+router.post('/',isLoggedIn,activitiesCtrl.create)
 
-router.put("/:id", activitiesCtrl.update)
+router.delete("/:id",isLoggedIn, activitiesCtrl.delete)
+
+router.put("/:id",isLoggedIn, activitiesCtrl.update)
 
 export {
   router
