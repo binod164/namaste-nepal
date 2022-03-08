@@ -9,10 +9,11 @@ const ticketSchema = new Schema({
   },
   price: {
     type:Number,
-    min: 0
+    min: 0,
   },
   numOfPeople: {
-    type: Number
+    type: Number,
+    default: 1
   }
 
 }, {
@@ -22,12 +23,14 @@ const ticketSchema = new Schema({
 const packageSchema = new Schema({
   destination: {
     type:String,
+    enum: ["Kathmandu","Chitwan","Pokhara"]
   },
   duration: {
     type:Number, 
   },
   tourGuide: {
     type:String,
+    enum: ["Jhilke","Rajesh Hamal","Kale Dai","Dhamala"]
   },
   tripDate: {
     type:Date,
@@ -37,13 +40,11 @@ const packageSchema = new Schema({
     type: Schema.Types.ObjectId, 
     ref: 'Profile'
   },
-  // activity: [{type: Schema.Types.ObjectId, ref: 'Activity'}]
 }, {
   timestamps: true
 })
 
 const Package = mongoose.model('Package', packageSchema)
-// const Ticket = mongoose.model('Ticket', ticketSchema)
 
 export{
   Package

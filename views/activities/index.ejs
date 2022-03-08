@@ -1,5 +1,4 @@
 <%- include('../partials/html-head') %>
-<!-- <link rel="stylesheet" href="/stylesheets/packages/index.css" /> -->
 <link 
   href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
   rel="stylesheet" 
@@ -9,10 +8,10 @@
 <%- include('../partials/nav') %>
 
 <main>
-  <h1 style= "font-size:5rem;padding-top:1%"><%= title %> </h1>
+  <h1 class = "title"><%= title %> </h1>
   <% if (user) { %>
     <a href="/activities/new">
-      <button> Add Activity</button> 
+      <button class="new"> Add Activity</button> 
     </a>
   <% } %>
   
@@ -24,6 +23,7 @@
           <div class="col">
             <div class="card mb-4 shadow-sm">
               <div class="card-body">
+                <h1 class="card-title fs-3 text-dark"><strong>Activity</strong></h1>      
           <p class="card-title fs-3 text-dark"><strong>Destination: </strong><%= activity.name %></p>
           <p class="card-title fs-3 text-dark"><strong>Recommended Activity: </strong><%= activity.recommendedActivities %></p>
           <p class="card-title fs-3 text-dark"><strong>Recommended Places: </strong><%= activity.recommendedPlaces %></p>

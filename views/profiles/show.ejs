@@ -1,5 +1,5 @@
 <%- include('../partials/html-head') %>
-<link rel="stylesheet" href="/stylesheets/packages/edit.css" />
+<link rel="stylesheet" href="/stylesheets/style.css" />
 <%- include('../partials/nav') %>
 
 <main>
@@ -34,11 +34,11 @@
 
 <% } %>
 <% if (profile.favorites.length)  {%>
-  <h2>
+  <h1>
     <%= isSelf ? "You have" : `${profile.name} has` %> favorites! Here they are!
-  </h2>
+  </h1>
   <% profile.favorites.forEach(favorite => { %>
-    <h3>Place Visited:<%= favorite.place %>Favorite Activity:<%= favorite.activity %>Favorite Food:<%= favorite.food %>
+    <h2><%= isSelf ? "You have" : `${profile.name} has` %><%=" visited "%>   <%=  favorite.place %><%=".In "  %><%=favorite.place %> <%= isSelf ? ", your " : ` , ${profile.name}'s` %><%= ` favorite activity is ` %><%= favorite.activity %><%= ` and favorite food is ${favorite.food}.` %>
     <% if (isSelf) { %> 
         <form 
           action="/profiles/favorites/<%= favorite._id %>?_method=DELETE" 
@@ -48,7 +48,7 @@
           <button type="submit">Remove favorite <%= favorite.name %></button>
         </form>
       <% } %> 
-    </h3>
+    </h2>
   <% }) %>
 <% } else { %>
   <h2>

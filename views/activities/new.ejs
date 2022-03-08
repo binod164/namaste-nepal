@@ -1,24 +1,24 @@
 <%- include('../partials/html-head') %>
 <link rel="stylesheet" href="/stylesheets/packages/edit.css" />
 <%- include('../partials/nav') %>
-
+<main>
 <h1><%= title %></h1>
     <p>Please add your favorite activity below:</p>
   <form id="add-performer-form" action="/activities" method="POST">
     <label for ="destination-select">Destination:
       <select name="name">
         <option value="Kathmandu">Kathmandu</option>
-        <option value="Chiwan">Chitwan</option>
+        <option value="Chitwan">Chitwan</option>
         <option value="Pokhara">Pokhara</option>
       </select>
     </label><br>
     <label for="name-input">Recommended places:</label>
-    <input type="text" name="recommendedPlaces" id="name-input"><br>
+    <input type="text" name="recommendedPlaces" id="name-input" required><br>
     <label for="name-input">Recommended activities:</label>
-    <input type="text" name="recommendedActivities" id="name-input"><br>
+    <input type="text" name="recommendedActivities" id="name-input" required><br>
     <button type="submit">Add Activity</button>
 
   </form>
   </p>
-
+</main>
   <%- include('../partials/footer') %>
