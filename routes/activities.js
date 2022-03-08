@@ -9,7 +9,7 @@ router.get('/new', activitiesCtrl.new)
 
 router.post('/', activitiesCtrl.create)
 
-// router.delete("/:id", activitiesCtrl.delete)
+router.delete("/:id", activitiesCtrl.delete)
 
 // router.put("/:id", activitiesCtrl.update)
 

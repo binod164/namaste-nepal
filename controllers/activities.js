@@ -15,13 +15,18 @@ function create(req, res) {
   })
 }
 
+function deleteActivity(req, res) {
+  Activity.findByIdAndDelete(req.params.id, function(err, activity) {
+    res.redirect('/activities/new')
+  })
+}
 
 
 
 export {
   newActivity as new,
   create,
-  // deleteActivity as delete,
+  deleteActivity as delete,
   // editActivity as edit,
   // update
 // }
