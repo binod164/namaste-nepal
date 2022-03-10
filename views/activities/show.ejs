@@ -9,22 +9,19 @@
 
 <main>
   <p>
-    <div class="container py-5 px-3">
-      <div 
-        class="row row-cols-2 row-cols-md-3 g1 px-4"
-      >
-          <div class="col">
-            <div class="card mb-4 shadow-sm">
-              <div class="card-body">
+    <div class="col d-flex justify-content-center">
+      <div class="card" style="width: 50rem;">
+        <div class="card-body">
+          <h1 class="card-title fs-1 text-dark"><strong>Recommended Activities</strong></h1>
           <p class="card-title fs-3 text-dark"><strong>Destination: </strong><%= activity.name %></p>
           <p class="card-title fs-3 text-dark"><strong>Recommended Activity: </strong><%= activity.recommendedActivities %></p>
           <p class="card-title fs-3 text-dark"><strong>Recommended Places: </strong><%= activity.recommendedPlaces %></p> 
           <% if (activity.owner.equals(user?.profile._id)) { %>
           <form action="/activities/<%= activity._id %>/edit" method="GET">
-          <button>EDIT</button>
+          <button class="h4">EDIT</button>
           </form>
           <form action="/activities/<%= activity._id %>?_method=DELETE" method="POST">
-            <button>DELETE</button>
+            <button class="h4">DELETE</button>
             </form>
         </div>
         </div>
