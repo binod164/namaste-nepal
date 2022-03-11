@@ -1,22 +1,31 @@
-main{
-  font-size: 2em;
-}
-label{
-  padding-left: 10%;
-  font-size: 1.5em;
-  padding-bottom: 5%;
+body{
+  background-image: url("https://i.imgur.com/9gPAZu7.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-h1{
-  font-size: 2em;
+form {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(2, minmax(auto, 35.2rem));
+  font-size: 2rem;
 }
 
-.add-btn{
-  display: flex;
-  justify-content: center;
-  font-size: 1.5em;
+form * {
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 2.5rem;
 }
 
-.activity-input{
-  padding-left: 20%;
+form > button {
+  grid-column: span 2;
+  width: 16rem;
+  margin-left: auto;
+  font-size: 2.2rem;
+}
+
+.title{
+  font-size: 4.5em;
+  padding-top: 3%;
+  padding-bottom: 3%;
 }

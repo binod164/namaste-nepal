@@ -3,33 +3,20 @@
 <%- include('../partials/nav') %>
 
 <main>
-  <h1><%= title %></h1>
+  <h1 class ="title"><%= title %></h1>
   <form action="/activities/<%= activity._id %>?_method=PUT" method="POST">
-    <div class="container">
-        <div class="row">
-            <div class="col-6">
-              <label for ="destination-select">Destination:
-                <select name="name">
-                  <option value="<%= activity.name %>"><%= activity.name %></option>
-                  <option value="Kathmandu">Kathmandu</option>
-                  <option value="Chiwan">Chitwan</option>
-                  <option value="Pokhara">Pokhara</option>
-                </select>
-              </label><br>
-            </div>
-            <div class="col-6">
-              <label for="name-input">Recommended places:</label>
-              <input type="text" name="recommendedPlaces" id="name-input" value ="<%=activity.recommendedPlaces%>"><br>
-            </div>    
-            <div class="col-12 activity-input">
-              <label for="name-input">Recommended activities:</label>
-              <input type="text" name="recommendedActivities" id="name-input" value="<%=activity.recommendedActivities%>"><br>
-            </div>
-            <div class="col-12 add-btn">
-              <button type="submit">Save Changes</button>
-            </div> 
-        </div>
-      </div>
+    <label for ="destination-select">Destination:</label>
+      <select name="name">
+        <option value="<%= activity.name %>"><%= activity.name %></option>
+        <option value="Kathmandu">Kathmandu</option>
+        <option value="Chiwan">Chitwan</option>
+        <option value="Pokhara">Pokhara</option>
+      </select>
+    <label for="name-input">Recommended place:</label>
+    <input type="text" name="recommendedPlaces" id="name-input" value ="<%=activity.recommendedPlaces%>">
+    <label for="name-input">Recommended activity:</label>
+    <input type="text" name="recommendedActivities" id="name-input" value="<%=activity.recommendedActivities%>">
+    <button type="submit">Save Changes</button>          
   </form>
 </main>
 

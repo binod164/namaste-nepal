@@ -3,33 +3,20 @@
 <%- include('../partials/nav') %>
 
 <main>
-    <h1><%= title %></h1>
-    <form id="add-performer-form" action="/activities" method="POST">
-      <div class="container">
-        <div class="row">
-          <div class="col-6">
-            <label for ="destination-select">Destination:
-              <select name="name">
-                <option value="Kathmandu">Kathmandu</option>
-                <option value="Chitwan">Chitwan</option>
-                <option value="Pokhara">Pokhara</option>
-              </select>
-            </label><br>
-          </div>
-          <div class="col-6">
-            <label for="name-input">Recommended place:</label>
-            <input type="text" name="recommendedPlaces" id="name-input" required><br>
-          </div>
-          <div class="col-12 activity-input">
-            <label for="name-input">Recommended activity:</label>
-            <input type="text" name="recommendedActivities" id="name-input" required><br>
-          </div>
-          <div class="col-12 add-btn">
-            <button type="submit">Add Recommendations</button>
-          </div>
-        </div>
-      </div>
-    </form>
+  <h1 class ="title"><%= title %></h1>
+  <form id="add-performer-form" action="/activities" method="POST">
+    <label for ="destination-select">Destination:</label>
+    <select name="name">
+      <option value="Kathmandu">Kathmandu</option>
+      <option value="Chitwan">Chitwan</option>
+      <option value="Pokhara">Pokhara</option>
+    </select>
+    <label for="name-input">Recommended place:</label>
+    <input type="text" name="recommendedPlaces" id="name-input" required>
+    <label for="name-input">Recommended activity:</label>
+    <input type="text" name="recommendedActivities" id="name-input" required>
+    <button type="submit">Add</button>
+  </form>
 </main>
 
   <%- include('../partials/footer') %>

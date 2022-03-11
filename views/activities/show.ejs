@@ -3,26 +3,22 @@
 <%- include('../partials/nav') %>
 
 <main>
-  <div class="container">
-    <div class="row">
-        <h1>Recommended Activities </h1>
-          <div class="col-12"><strong>Destination: </strong><%= activity.name %></div>
-          <div class="col-12"><strong>Recommended Activity: </strong><%= activity.recommendedActivities %></div>
-          <div class="col-12"><strong>Recommended Place: </strong><%= activity.recommendedPlaces %></div> 
-          <% if (activity.owner.equals(user?.profile._id)) { %>
-            <div class="col-12">
-              <form action="/activities/<%= activity._id %>/edit" method="GET">
-                <button>EDIT</button>
-              </form>
-            </div>
-            <div class="col-12">
-              <form action="/activities/<%= activity._id %>?_method=DELETE" method="POST">
-                <button>DELETE</button>
-              </form>
-            </div>
-          <% } %>
+  <div><h1>Recommended Activities </h1></div>
+  <div><strong>Destination: </strong><%= activity.name %></div>
+  <div><strong>Recommended Activity: </strong><%= activity.recommendedActivities %></div>
+  <div><strong>Recommended Place: </strong><%= activity.recommendedPlaces %></div> 
+  <% if (activity.owner.equals(user?.profile._id)) { %>
+    <div>
+      <form action="/activities/<%= activity._id %>/edit" method="GET">
+        <button>EDIT</button>
+      </form>
     </div>
-  </div> 
+    <div>
+      <form action="/activities/<%= activity._id %>?_method=DELETE" method="POST">
+        <button>DELETE</button>
+      </form>
+    </div>
+  <% } %>
 </main>
 
 <%- include('../partials/footer') %>

@@ -3,44 +3,26 @@
 <%- include('../partials/nav') %>
 
 <main>
-  <h1>Add a Package</h1>
+  <h1 class ="title">Add a Package</h1>
   <form action="/packages" method="POST">
-    <div class="container">
-      <div class="row">
-        <div class="col-6">
-          <label for ="destination-select">Destination:
-            <select name="destination">
-              <option value="Kathmandu">Kathmandu</option>
-              <option value="Chitwan">Chitwan</option>
-              <option value="Pokhara">Pokhara</option>
-            </select>
-          </label><br>
-          </div>
-          <div class="col-6">
-          <label for ="duration-input">Duration:
-              <input type="number" name="duration" required>
-          </label><br>
-          </div>
-          <div class="col-6">
-          <label for ="tourGuide-select">Tour Guide:
-            <select name="tourGuide">
-              <option value="Jhilke">Jhilke</option>
-              <option value="Rajesh">Rajesh Hamal</option>
-              <option value="Kale" >Kale Dai</option>
-              <option value="Dhamala">Dhamala</option>
-            </select>  
-          </label for ="tripDate-input"><br>
-          </div>
-          <div class="col-6">
-          <label>Trip Date:
-          <input type="datetime-local" name="tripDate" required>
-          </label><br>
-          </div>
-          <div class="col-12 add-btn">
-            <button type="submit">Add Package</button>
-          </div>  
-      </div>
-    </div>
+    <label for ="destination-select">Destination:</label>
+    <select name="destination">
+      <option value="Kathmandu">Kathmandu</option>
+      <option value="Chitwan">Chitwan</option>
+      <option value="Pokhara">Pokhara</option>
+    </select>
+    <label for ="duration-input">Duration:</label>
+    <input type="number" name="duration" required>
+    <label for ="tourGuide-select">Tour Guide:</label>
+    <select name="tourGuide">
+      <option value="Jhilke">Jhilke</option>
+      <option value="Rajesh">Rajesh Hamal</option>
+      <option value="Kale" >Kale Dai</option>
+      <option value="Dhamala">Dhamala</option>
+    </select>  
+    <label for ="tripDate-input">Trip Date:</label>
+    <input type="date" name="tripDate" required>
+    <button type="submit">Add Package</button>
   </form>
 </main>
 

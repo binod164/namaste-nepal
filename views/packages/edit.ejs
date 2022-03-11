@@ -3,48 +3,28 @@
 <%- include('../partials/nav') %>
 
   <main>
-    <h1> <%= title %> </h1>
-    <form 
-        id="new-form" 
-        action="/packages/<%= vacationPackage._id %>?_method=PUT" 
-        method="POST"
-    >
-    <div class="container">
-      <div class="row">
-        <div class="col-6">
-          <label for ="destination-select">Destination:
-            <select name="destination">
-              <option value="<%= vacationPackage.destination %>"><%= vacationPackage.destination %></option>
-              <option value="Kathmandu">Kathmandu</option>
-              <option value="Chitwan">Chitwan</option>
-              <option value="Pokhara">Pokhara</option>
-            </select>
-          </label><br>
-        </div>
-        <div class="col-6"> 
-          <label for ="duration-input">Duration:
-            <input type="number" name="duration" value="<%= vacationPackage.duration %>" required>
-          </label><br>
-        </div>  
-        <div class="col-6"> 
-          <label for ="tourGuide-select">Tour Guide:
-            <select name="tourGuide">
-                <option value="<%= vacationPackage.tourGuide %>"><%= vacationPackage.tourGuide %></option>
-                <option value="Jhilke">Jhilke</option>
-                <option value="Rajesh">Rajesh Hamal</option>
-                <option value="Kale" >Kale Dai</option>
-                <option value="Dhamala">Dhamala</option>
-            </select>
-          </label><br>
-        </div>  
-        <div class="col-6">
-          <label  for ="tripDate-input">Trip Date:
-            <input type="datetime-local" name="tripDate" value="<%= vacationPackage.departs %>" required>
-          </label><br>
-        </div>  
-        <div class="col-12 add-btn">
-          <button type="submit">Save Package</button>
-        </div>  
+    <h1 class ="title"><%= title %></h1>
+    <form id="new-form" action="/packages/<%= vacationPackage._id %>?_method=PUT" method="POST">
+      <label for ="destination-select">Destination:</label>
+      <select name="destination" value="<%= vacationPackage.destination %>">
+        <option value="<%= vacationPackage.destination %>"><%= vacationPackage.destination %></option>
+        <option value="Kathmandu">Kathmandu</option>
+        <option value="Chitwan">Chitwan</option>
+        <option value="Pokhara">Pokhara</option>
+      </select>
+      <label for ="duration-input">Duration:</label>
+      <input type="number" name="duration" value="<%= vacationPackage.duration %>" required>
+      <label for ="tourGuide-select">Tour Guide:</label>
+      <select name="tourGuide">
+        <option value="<%= vacationPackage.tourGuide %>"><%= vacationPackage.tourGuide %></option>
+        <option value="Jhilke">Jhilke</option>
+        <option value="Rajesh">Rajesh Hamal</option>
+        <option value="Kale" >Kale Dai</option>
+        <option value="Dhamala">Dhamala</option>
+      </select>
+      <label for ="tripDate-input">Trip Date:</label>
+      <input type="date" name="tripDate" value="<%= vacationPackage.tripDate %>" required>
+      <button type="submit">Save Package</button>
     </form>
   </main>
   
