@@ -29,7 +29,7 @@ const packageSchema = new Schema({
   },
   tourGuide: {
     type:String,
-    enum: ["Jhilke","Rajesh Hamal","Kale Dai","Dhamala"]
+    enum: ["Jhilke","Rajesh","Kale","Dhamala"]
   },
   tripDate: {
     type:Date,

@@ -4,7 +4,8 @@ const Schema = mongoose.Schema
 
 const activitySchema = new Schema({
   name: {
-    type:String
+    type:String,
+    enum: ["Kathmandu","Chitwan","Pokhara"]
   },
   recommendedPlaces: {
     type:String
