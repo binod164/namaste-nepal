@@ -1,6 +1,8 @@
 import mongoose from 'mongoose'
 
-const favoriteSchema = new mongoose.Schema({
+const Schema = mongoose.Schema
+
+const favoriteSchema = new Schema({
   place: String,
   activity: String,
   food:String,
@@ -8,7 +10,7 @@ const favoriteSchema = new mongoose.Schema({
   timestamps: true
 })
 
-const profileSchema = new mongoose.Schema({
+const profileSchema = new Schema({
   name: String,
   avatar: String,
   favorites: [favoriteSchema],

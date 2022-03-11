@@ -2,7 +2,6 @@ import mongoose from 'mongoose'
 
 const Schema = mongoose.Schema
 
-
 const ticketSchema = new Schema({
   bookedBy: {
     type:String,

@@ -50,12 +50,14 @@ h1 {
   text-align: center;
   font-family: cursive;
   font-weight: bolder;
-  color: white;
+  color: black;
+  padding-top: 3%;
+  padding-bottom: 3%;
 }
 
 
 h2 {
-  font-size: 2rem;
+  font-size: 4rem;
 }
 
 h3 {
@@ -119,9 +121,14 @@ nav > a {
 .title{
   font-size: 50px;
   font-family: cursive;
+  padding: 0%;
 }
 
 .new{
   font-size: 20px;
+}
+
+img{
+  width:10vw;
 }
 

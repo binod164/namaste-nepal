@@ -15,7 +15,7 @@
   <h1>It's <%= isSelf ? "you" : profile.name %>!</h1>
 
 <% if (isSelf)  {%> 
-  <h2>Add Favorites about the place you visited!</h2>
+  <h2>Add Favorites about the place you visited!</h2><br>
   <form action="/profiles/<%= profile._id %>/favorites" method="POST">
     <label>
       Place Visited: 
@@ -29,8 +29,9 @@
       Favorite Food: 
       <input type="text" name="food" autocomplete="off">
     </label>
-    <button type="submit">Add Favorites</button>
+    <button class ="remove" type="submit">Add Favorites</button>
   </form>
+  <br>
 
 <% } %>
 <% if (profile.favorites.length)  {%>

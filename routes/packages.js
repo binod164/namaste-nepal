@@ -10,7 +10,7 @@ router.get('/new', packagesCtrl.new)
 
 router.get('/:id', packagesCtrl.show)
 
-router.get("/:id/edit", packagesCtrl.edit)
+router.get("/:id/edit",isLoggedIn, packagesCtrl.edit)
 
 router.post('/',isLoggedIn, packagesCtrl.create)
 

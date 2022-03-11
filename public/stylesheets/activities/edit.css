@@ -7,9 +7,7 @@ body{
 form {
   display: grid;
   grid-gap: 10px;
-  grid-template-columns: repeat(2, minmax(auto, 25rem));
   font-size: 2rem;  
-  justify-content: center;
   
 }
 
@@ -22,6 +20,7 @@ form * {
 form > button {
   width: 16rem;
   font-size: 2.2rem;
+
 }
 
 .add{
@@ -35,8 +34,4 @@ form > button {
 
 h1{
   font-size: 40px;
-}
-
-.col{
-  padding: 10rem 1rem;
 }

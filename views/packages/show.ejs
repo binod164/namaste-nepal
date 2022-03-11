@@ -1,78 +1,64 @@
 <%- include('../partials/html-head') %>
-<link 
-  href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
-  rel="stylesheet" 
-  integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
-  crossorigin="anonymous"
->
+<link rel="stylesheet" href="/stylesheets/packages/show.css" />
 <%- include('../partials/nav') %>
 
-<h1 style= "font-size:5rem;padding:2% 0;text-align:center;"><%= title %> </h1>
-
-<div class="col d-flex justify-content-center">
-  <div class="card" style="width: 50rem;">
-    <div class="card-body">
-        <h1 class="card-title fs-1 text-dark"><strong>Vacation Package</strong></h1>
-          <p class="card-title fs-1 text-dark"><strong>Destination: </strong><%= vacationPackage.destination  %></p>
-          <p class="card-title fs-1 text-dark"><strong>Duration:</strong> <%= vacationPackage.duration  %> weeks</p>
-          <p class="card-title fs-1 text-dark"><strong>Tour Guide: </strong> <%= vacationPackage.tourGuide  %></p>
-          <p class="card-title fs-1 text-dark"><strong>Trip Date: </strong><%= vacationPackage.tripDate  %></p>
-          <p class="card-title fs-1 text-dark"><strong>Created by: </strong><%= vacationPackage.owner.name %></p>
-          <% if (vacationPackage.owner.equals(user?.profile._id)) { %>
-            <form action="/packages/<%= vacationPackage._id %>/edit" method="GET">
-            <button class="h4" type="submit">Edit this Package</button>
-            </form>
-            <form action="/packages/<%= vacationPackage._id %>?_method=DELETE" method="POST">
-            <button class="h4" type="submit">Delete this Package</button>
-            </form>
-          <% } %>
-          <% if (user?.profile._id) { %>
-          <h2 class="card-title fs-1 text-dark">Bookings</h2>
-                <form 
-                  action="/packages/<%= vacationPackage._id %>/tickets"
-                  id="add-ticket-form"
-                  method="post"
-                >
-                  <label for="content-textarea">Booked By:</label>
-                  <input name="bookedBy">
-                  <label for="content-textarea">Number of people:</label>
-                  <input name="numOfPeople">
-                  <label for="price-select">Price:</label>
-                  <input type="number" name="price" required>
-                  <button class="h4" type="submit">Book</button>
-                </form>
-                <% if (vacationPackage.tickets.length) { %>
-                  <table>
-                    <thead>
-                      <tr>
-                        <th class="card-title fs-1 text-dark">Booked by</th>
-                        <th class="card-title fs-1 text-dark">Number of people</th>
-                        <th class="card-title fs-1 text-dark">Price</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <% vacationPackage.tickets.forEach(function(ticket) { %>
-                        <tr>
-                          <td class="card-title fs-1 text-dark"><%= ticket.bookedBy %></td>
-                          <td class="card-title fs-1 text-dark"><%= ticket.numOfPeople %></td>
-                          <td class="card-title fs-1 text-dark"> $ <%=ticket.price %></td>
-                        </tr>
-                      <% }) %>
-                    </tbody>
-                  </table>
-                <% } else { %>
-                  <h3>No Bookings Yet</h3>
-                <% } %>
-                <% } %>     
-  </div>
-  </div>
-</div>
+<main>
+    <div class="container">
+      <div class="row">
+        <h1>Package Details</h1>
+            <div class="col-6"><strong>Destination: </strong><%= vacationPackage.destination  %></div>
+            <div class="col-6"><strong>Duration:</strong> <%= vacationPackage.duration  %> weeks</div>
+            <div class="col-6"><strong>Tour Guide: </strong> <%= vacationPackage.tourGuide  %></div>
+            <div class="col-6"><strong>Trip Date: </strong><%= vacationPackage.tripDate  %></div>
+            <div class="col-6"><strong>Created by: </strong><%= vacationPackage.owner.name %></div>
+            <% if (vacationPackage.owner.equals(user?.profile._id)) { %>
+              <form action="/packages/<%= vacationPackage._id %>/edit" method="GET">
+                <div class="col-12">
+                  <button class="h4" type="submit">Edit Package</button>
+                </div> 
+              </form>
+              <form action="/packages/<%= vacationPackage._id %>?_method=DELETE" method="POST">
+                <div class="col-12">
+                  <button class="h4" type="submit">Delete Package</button>
+                </div>   
+              </form>
+            <% } %>
+      </div>
+    </div>
+    <% if (user?.profile._id) { %>
+      <h1>Bookings</h1>
+        <form action="/packages/<%= vacationPackage._id %>/tickets" id="add-ticket-form" method="post">
+          <label for="content-textarea">Booked By:</label>
+          <input name="bookedBy">
+          <label for="content-textarea">Number of people:</label>
+          <input name="numOfPeople">
+          <label for="price-select">Price:</label>
+          <input type="number" name="price" required>
+          <button class="h4" type="submit">Book</button>
+        </form>
+        <% if (vacationPackage.tickets.length) { %>
+          <table>
+            <thead>
+              <tr>
+                <th>Booked by</th>
+                <th>Number of people</th>
+                <th>Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% vacationPackage.tickets.forEach(function(ticket) { %>
+                  <tr>
+                    <td><%= ticket.bookedBy %></td>
+                    <td><%= ticket.numOfPeople %></td>
+                    <td> $ <%=ticket.price %></td>
+                  </tr>
+              <% }) %>
+            </tbody>
+          </table>
+        <% } else { %>
+          <h3>No Bookings Yet</h3>
+        <% } %>
+    <% } %>     
 </main>
-
-<script 
-  src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
-  integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
-  crossorigin="anonymous"
-></script>
 
 <%- include('../partials/footer') %>

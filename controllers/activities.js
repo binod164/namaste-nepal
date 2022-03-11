@@ -3,7 +3,7 @@ import { Activity } from '../models/activity.js'
 
 function newActivity(req, res) {
   res.render('activities/new',{
-  title:'Add Activity'
+    title:'Add Recommendations'
   })
 }
 
@@ -54,7 +54,7 @@ function edit(req, res) {
   .then(activity => {
     res.render('activities/edit', {
       activity,
-      title: "Edit Activity"
+      title: "Edit Recommendations"
     })
   })
   .catch(err => {

@@ -1,10 +1,12 @@
 # Namaste Nepal
 
-<img src = "https://i.imgur.com/DmCS8f7.jpg">
+Namaste Nepal is an app where users can create a vacation package, book ticket for the package and add recommended places and activites to do in the places user visited.
 
 ***
+## Screenshots
 
-Namaste Nepal is an app where users can create a vacation package, book ticket for the package and add recommended places and activites to do in the places user visited.
+<img src = "https://i.imgur.com/DmCS8f7.jpg">
+<img src = "https://i.imgur.com/KXTbrRh.jpg">
 
 ***
 

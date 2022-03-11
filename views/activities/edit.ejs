@@ -1,27 +1,36 @@
 <%- include('../partials/html-head') %>
-<link rel="stylesheet" href="/stylesheets/packages/edit.css" />
+<link rel="stylesheet" href="/stylesheets/packages/new.css" />
 <%- include('../partials/nav') %>
 
 <main>
   <h1><%= title %></h1>
   <form action="/activities/<%= activity._id %>?_method=PUT" method="POST">
-    <p>Please add your favorite activity below:</p>
-    <label for ="destination-select">Destination:
-      <select name="name">
-        <option value="<%= activity.name %>"><%= activity.name %></option>
-        <option value="Kathmandu">Kathmandu</option>
-        <option value="Chiwan">Chitwan</option>
-        <option value="Pokhara">Pokhara</option>
-      </select>
-    </label><br>
-    <label for="name-input">Recommended places:</label>
-    <input type="text" name="recommendedPlaces" id="name-input" value ="<%=activity.recommendedPlaces%>"><br>
-    <label for="name-input">Recommended activities:</label>
-    <input type="text" name="recommendedActivities" id="name-input" value="<%=activity.recommendedActivities%>"><br>
-    <button type="submit">Save Activity</button>
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+              <label for ="destination-select">Destination:
+                <select name="name">
+                  <option value="<%= activity.name %>"><%= activity.name %></option>
+                  <option value="Kathmandu">Kathmandu</option>
+                  <option value="Chiwan">Chitwan</option>
+                  <option value="Pokhara">Pokhara</option>
+                </select>
+              </label><br>
+            </div>
+            <div class="col-6">
+              <label for="name-input">Recommended places:</label>
+              <input type="text" name="recommendedPlaces" id="name-input" value ="<%=activity.recommendedPlaces%>"><br>
+            </div>    
+            <div class="col-12 activity-input">
+              <label for="name-input">Recommended activities:</label>
+              <input type="text" name="recommendedActivities" id="name-input" value="<%=activity.recommendedActivities%>"><br>
+            </div>
+            <div class="col-12 add-btn">
+              <button type="submit">Save Changes</button>
+            </div> 
+        </div>
+      </div>
   </form>
-  </div>
-  </div>
-  </div>
 </main>
+
 <%- include('../partials/footer') %>

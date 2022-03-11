@@ -1,43 +1,28 @@
 <%- include('../partials/html-head') %>
-<link 
-  href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
-  rel="stylesheet" 
-  integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
-  crossorigin="anonymous"
->
+<link rel="stylesheet" href="/stylesheets/activities/show.css" />
 <%- include('../partials/nav') %>
 
 <main>
-  <p>
-    <div class="col d-flex justify-content-center">
-      <div class="card" style="width: 50rem;">
-        <div class="card-body">
-          <h1 class="card-title fs-1 text-dark"><strong>Recommended Activities</strong></h1>
-          <p class="card-title fs-3 text-dark"><strong>Destination: </strong><%= activity.name %></p>
-          <p class="card-title fs-3 text-dark"><strong>Recommended Activity: </strong><%= activity.recommendedActivities %></p>
-          <p class="card-title fs-3 text-dark"><strong>Recommended Places: </strong><%= activity.recommendedPlaces %></p> 
+  <div class="container">
+    <div class="row">
+        <h1>Recommended Activities </h1>
+          <div class="col-12"><strong>Destination: </strong><%= activity.name %></div>
+          <div class="col-12"><strong>Recommended Activity: </strong><%= activity.recommendedActivities %></div>
+          <div class="col-12"><strong>Recommended Place: </strong><%= activity.recommendedPlaces %></div> 
           <% if (activity.owner.equals(user?.profile._id)) { %>
-          <form action="/activities/<%= activity._id %>/edit" method="GET">
-          <button class="h4">EDIT</button>
-          </form>
-          <form action="/activities/<%= activity._id %>?_method=DELETE" method="POST">
-            <button class="h4">DELETE</button>
-            </form>
-        </div>
-        </div>
-        </div>
-
+            <div class="col-12">
+              <form action="/activities/<%= activity._id %>/edit" method="GET">
+                <button>EDIT</button>
+              </form>
+            </div>
+            <div class="col-12">
+              <form action="/activities/<%= activity._id %>?_method=DELETE" method="POST">
+                <button>DELETE</button>
+              </form>
+            </div>
           <% } %>
-      </div>
-      </div>
-
-    </ul>
-  </p>
+    </div>
+  </div> 
 </main>
-<script 
-  src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
-  integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
-  crossorigin="anonymous"
-></script>
 
 <%- include('../partials/footer') %>

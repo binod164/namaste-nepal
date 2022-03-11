@@ -2,7 +2,7 @@ import { Package } from '../models/vacationPackage.js'
 
 function newPackage(req, res) {
   res.render('packages/new',{
-  title:'Add Package'
+    title:'Add Package'
   })
 }
 
