@@ -23,7 +23,6 @@ function index(req, res) {
 
 function create(req, res) {
   req.body.owner = req.user.profile._id
-  console.log(req.user);
   Activity.create(req.body)
   .then(activity => {
     res.redirect('/activities')

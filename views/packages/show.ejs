@@ -25,9 +25,9 @@
       <h1>Bookings</h1>
         <form action="/packages/<%= vacationPackage._id %>/tickets" id="add-ticket-form" method="post">
           <label for="content-textarea">Booked By:</label>
-          <input name="bookedBy">
+          <input name="bookedBy" required>
           <label for="content-textarea">Total people:</label>
-          <input name="numOfPeople">
+          <input name="numOfPeople" required>
           <label for="price-select">Price:</label>
           <input type="number" name="price" required>
           <button type="submit">Book</button>

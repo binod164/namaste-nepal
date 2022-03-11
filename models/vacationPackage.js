@@ -32,7 +32,7 @@ const packageSchema = new Schema({
     enum: ["Jhilke","Rajesh","Kale","Dhamala"]
   },
   tripDate: {
-    type:Date,
+    type:String,
   },
   tickets: [ticketSchema],
   owner: {
