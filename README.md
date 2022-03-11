@@ -2,6 +2,11 @@
 
 Namaste Nepal is a tourism app which allows user to create a vacation package, book ticket for the package and add recommended places and activites to do in the places user has visited.
 
+***
+
+## <a href="https://namaste---nepal.herokuapp.com/" target="_blank">Check out my app here</a>
+
+## <a href="https://trello.com/b/2SJHcB8g/binods-workspace" target="_blank">Trello planning</a>
 
 ***
 
@@ -13,11 +18,6 @@ Namaste Nepal is a tourism app which allows user to create a vacation package, b
 
 ***
 
-## <a href="https://namaste---nepal.herokuapp.com/" target="_blank">Test my app here</a>
-
-## <a href="https://trello.com/b/2SJHcB8g/binods-workspace" target="_blank">Trello planning</a>
-
-***
 
 ## Technologies Used 🧑‍💻
  * JavaScript 
