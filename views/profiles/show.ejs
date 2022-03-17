@@ -18,11 +18,11 @@
   <h2>Add Favorites about the place you visited!</h2><br>
   <form action="/profiles/<%= profile._id %>/favorites" method="POST">
     <label>Place Visited: </label>
-    <input type="text" name="place" autocomplete="off">
+    <input type="text" name="place" autocomplete="off" required>
     <label>Favorite Activity: </label>
-    <input type="text" name="activity" autocomplete="off">
+    <input type="text" name="activity" autocomplete="off" required>
     <label>Favorite Food: </label>
-    <input type="text" name="food" autocomplete="off">
+    <input type="text" name="food" autocomplete="off" required>
     <button class ="remove" type="submit">Add Favorites</button>
   </form>
   <br>

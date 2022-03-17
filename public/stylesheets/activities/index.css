@@ -1,5 +1,5 @@
 body{
-  background-color: rgb(64, 151, 223);
+  background-color: rgb(56, 165, 228);
 }
 
 form{
@@ -23,6 +23,14 @@ form > button {
 
 a{
   font-size: 1.5rem;
+}
+
+h1{
+  font-size: 4rem;
+}
+
+h2{
+  font-size: 3rem;
 }
 
 @media only screen and (max-width: 600px) {
@@ -50,6 +58,14 @@ a{
 
   .col{
     width: 100%;
+  }
+
+  h1{
+    font-size: 2rem;
+  }
+
+  h2{
+    font-size: 1.5rem;
   }
 
 } 

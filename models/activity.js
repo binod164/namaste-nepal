@@ -7,6 +7,9 @@ const activitySchema = new Schema({
     type:String,
     enum: ["Kathmandu","Chitwan","Pokhara"]
   },
+  imageUrl: {
+    type:String,
+  },
   recommendedPlaces: {
     type:String
   },

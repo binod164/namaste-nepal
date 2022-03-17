@@ -3,7 +3,16 @@
 <%- include('../partials/nav') %>
 
 <main>
-  <div><h1>Activity Detail </h1></div>
+  <h1>Activity Detail </h1>
+  <% if(activity.imageUrl) {%> 
+    <img src="<%= activity.imageUrl %>" alt="Ktm">
+  <% } else if(activity.name === "Kathmandu"){%>
+    <img src="https://i.imgur.com/Pe0I4Li.jpg" alt="Ktm">
+  <% } else if(activity.name === "Pokhara"){ %>
+    <img src="https://i.imgur.com/HvxYfJS.png" alt="Pokhara">
+  <% } else { %>
+    <img src="https://i.imgur.com/JtYtusZ.jpg" alt="Chitwan">
+  <% } %>  
   <div><strong>Destination: </strong><%= activity.name %></div>
   <div><strong>Recommended Activity: </strong><%= activity.recommendedActivities %></div>
   <div><strong>Recommended Place: </strong><%= activity.recommendedPlaces %></div> 

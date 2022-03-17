@@ -3,6 +3,7 @@
 <%- include('./partials/nav') %>
 
 <main>
+  <h1 class="title"><%= user ? `Hello, ${user.profile.name}` : "Namaste Nepal" %></h1>
   <% if (user?.profile.avatar) { %>
     <div>
       <img
@@ -11,6 +12,5 @@
       />
     </div>
   <% } %>
-  <h1 class="title"><%= user ? `Hello, ${user.profile.name}` : "Namaste Nepal" %></h1>
 </main>
 <%- include('./partials/footer') %>

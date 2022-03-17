@@ -4,6 +4,13 @@
 
 <main>
   <h1>Package Details</h1>
+    <% if(vacationPackage.destination === "Kathmandu"){%>
+      <img src="https://i.imgur.com/Pe0I4Li.jpg" alt="Ktm">
+    <% } else if(vacationPackage.destination === "Pokhara"){ %>
+      <img src="https://i.imgur.com/HvxYfJS.png" alt="Pokhara">
+    <% } else { %>
+      <img src="https://i.imgur.com/JtYtusZ.jpg" alt="Chitwan">
+    <% } %>
     <div><strong>Destination: </strong><%= vacationPackage.destination  %></div>
     <div><strong>Duration:</strong> <%= vacationPackage.duration  %> weeks</div>
     <div><strong>Tour Guide: </strong> <%= vacationPackage.tourGuide  %></div>
@@ -14,8 +21,6 @@
         <form action="/packages/<%= vacationPackage._id %>/edit" method="GET">
           <button class ="edit-btn" type="submit">Edit Package</button>
         </form>  
-      </div> 
-      <div>
         <form action="/packages/<%= vacationPackage._id %>?_method=DELETE" method="POST">
           <button class ="del-btn" type="submit">Delete Package</button>
         </form>
