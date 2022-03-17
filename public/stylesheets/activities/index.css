@@ -44,4 +44,12 @@ a{
     font-size: 1.5rem;
   }
 
+  .row{
+    display: grid;
+  }
+
+  .col{
+    width: 100%;
+  }
+
 } 

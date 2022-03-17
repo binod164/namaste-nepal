@@ -4,18 +4,19 @@
 </head>
 <body>
 <nav>
-  <a href="/packages">Packages</a>
-  <a href="/activities">Activities</a>
-  <a href="/profiles">Profiles</a>
-  <% if (user) { %>
-    <a href="/auth/logout">
-        <button type="submit">Logout</button>
-      </a>
-  <% } else { %>
-      <a href="/auth/google" class="siwg-link">
-        <button type="submit" class="siwg">
-          <img id="siwg-image" alt="Sign in with Google" />
-        </button>
-      </a>
-  <% } %>
+    <a href="/packages">Packages</a>
+    <a href="/activities">Activities</a>
+    
+    <% if (user) { %>
+      <a href="/profiles">Profiles</a>
+      <a href="/auth/logout">
+          <button type="submit">Logout</button>
+        </a>
+    <% } else { %>
+        <a href="/auth/google" class="siwg-link">
+          <button type="submit" class="siwg">
+            <img id="siwg-image" alt="Sign in with Google"/>
+          </button>
+        </a>
+    <% } %>
 </nav>
