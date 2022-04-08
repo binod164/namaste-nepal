@@ -17,7 +17,7 @@ html {
 }
 
 body {
-  background-color: rgb(64, 151, 223);
+  background-color: white;
   /* Use a system font, if none are available use an available sans-sarif font */
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
@@ -26,7 +26,7 @@ body {
 
 
 nav {
-  background-color: white;
+  background-color: rgb(84, 170, 236);
   font-size: 1.6rem;
   display: flex;
 }
@@ -79,7 +79,7 @@ section {
 }
 
 a {
-  color: #00b7ff;
+  color: skyblue;
   text-align: center;
 }
 
@@ -88,6 +88,7 @@ pre {
 }
 
 nav > a {
+  color: skyblue;
   margin: 0.5rem 2rem;
   text-decoration: none;
   font-size: 1.5vw;
@@ -116,6 +117,8 @@ nav > a {
   font-size: 50px;
   font-family: cursive;
   padding: 0%;
+  padding-top: 0.5%;
+  padding-bottom: 0.5%;
 }
 
 .new{
@@ -126,12 +129,17 @@ img{
   width:10vw;
 }
 
+button{
+  border-radius: 6px;
+}
+
 @media only screen and (max-width: 600px) {
 
   nav {
-    background-color: white;
+    color: #00b7ff;
     font-size: 1.6rem;
     display: flex;
+    height: 55px;
   }
 
   nav > a {

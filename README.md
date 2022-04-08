@@ -12,9 +12,9 @@ Namaste Nepal is a tourism app which allows user to create a vacation package, b
 
 ## Screenshots
 
-<img src = "https://i.imgur.com/nUYxIQl.jpg">
-<img src = "https://i.imgur.com/Xos6qxA.png">
-<img src = "https://i.imgur.com/nt7A5tS.png">
+<img src = "https://i.imgur.com/JbpKPzB.jpg">
+<img src = "https://i.imgur.com/2eILNxR.jpg">
+<img src = "https://i.imgur.com/NIS2EpR.jpg">
 
 ***
 

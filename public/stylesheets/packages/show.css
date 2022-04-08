@@ -1,7 +1,3 @@
-body{
-  background-color: rgb(56, 165, 228);
-}
-
 main{
   font-size: 2em; 
 }
@@ -36,6 +32,11 @@ form > button {
   width: 16rem;
   margin-left: auto;
   font-size: 2.2rem;
+  border-radius: 8px;
+}
+
+button{
+  border-radius: 6px;
 }
 
 .edit-btn , .del-btn{
